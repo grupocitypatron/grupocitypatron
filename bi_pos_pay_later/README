@@ -9,3 +9,6 @@ Version 14.0.0.2 : (05-02-2021)
 
 Version 14.0.0.3 : (09-02-2021)	
 		- Remove request and use self to get user id.
+
+Version 14.0.0.4 : (09-02-2021)	
+		- Used .get() method instead of [] in pos config to solve odoo sh issue.

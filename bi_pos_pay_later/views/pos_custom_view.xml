@@ -7,7 +7,7 @@
 			<field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
 			<field name="arch" type="xml">
 				<xpath expr="//div[@id = 'posted_div']" position="after">
-					<div id="partial_pay_div" class="col-xs-12 col-md-6 o_setting_box">
+					<div id="partial_pay_div" class="col-xs-12 col-md-6 o_setting_box" attrs="{'invisible': [('show_order' ,'=', False)]}">
 						<div class="o_setting_left_pane">
 							<field name="allow_partical_payment"/>
 						</div>

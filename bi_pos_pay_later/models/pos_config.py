@@ -15,15 +15,14 @@ class POSConfigInherit(models.Model):
 	@api.model
 	def create(self, vals):
 		res=super(POSConfigInherit, self).create(vals)
-		product=self.env['product.product'].browse(vals['partial_product_id'])
+		product=self.env['product.product'].browse(vals.get('partial_product_id',False))
 
-		if vals['allow_partical_payment']==True:
-			if product:
-				if product.available_in_pos != True:
-					raise ValidationError(_('Please enable available in POS for the Partial Payment Product'))
+		if vals.get('allow_partical_payment',False) and product:
+			if product.available_in_pos != True:
+				raise ValidationError(_('Please enable available in POS for the Partial Payment Product'))
 
-				if product.taxes_id:
-					raise ValidationError(_('You are not allowed to add Customer Taxes in the Partial Payment Product'))
+			if product.taxes_id:
+				raise ValidationError(_('You are not allowed to add Customer Taxes in the Partial Payment Product'))
 
 		return res
 
@@ -31,7 +30,7 @@ class POSConfigInherit(models.Model):
 	def write(self, vals):
 		res=super(POSConfigInherit, self).write(vals)
 
-		if self.allow_partical_payment == True:
+		if self.allow_partical_payment:
 			if self.partial_product_id.available_in_pos != True:
 				raise ValidationError(_('Please enable available in POS for the Partial Payment Product'))
 
