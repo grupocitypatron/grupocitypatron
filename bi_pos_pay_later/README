@@ -6,3 +6,6 @@ Version 14.0.0.1 : (03-02-2021)
 
 Version 14.0.0.2 : (05-02-2021)	
 		- Solve invoice create issue of partially paid order.
+
+Version 14.0.0.3 : (09-02-2021)	
+		- Remove request and use self to get user id.

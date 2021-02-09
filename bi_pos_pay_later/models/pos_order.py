@@ -7,7 +7,6 @@ from odoo.exceptions import RedirectWarning, UserError, ValidationError
 import random
 import psycopg2
 import base64
-from odoo.http import request
 from functools import partial
 from odoo.tools import float_is_zero
 

@@ -5,7 +5,6 @@ from odoo import fields, models, api, _ , tools
 from odoo.exceptions import RedirectWarning, UserError, ValidationError ,Warning
 import random
 import base64
-from odoo.http import request
 from datetime import date, datetime
 from odoo.tools import DEFAULT_SERVER_DATETIME_FORMAT, DEFAULT_SERVER_DATE_FORMAT
 from collections import defaultdict
@@ -18,7 +17,7 @@ class PosSessionInherit(models.Model):
 	@api.model
 	def create(self, vals):
 		res = super(PosSessionInherit, self).create(vals)
-		orders = self.env['pos.order'].search([('user_id', '=', request.env.uid),
+		orders = self.env['pos.order'].search([('user_id', '=', self.env.uid),
 			('state', '=', 'draft'),('session_id.state', '=', 'closed')])
 		orders.write({'session_id': res.id})
 		return res
