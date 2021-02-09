@@ -1,0 +1,8 @@
+
+Version 14.0.0.1 : (03-02-2021)	
+		- Customization for Aldo bernal.
+		- Show only same sales team order.
+		- Added 2 new fields in pos config "User can create POS Order" and "User can make payment to POS orders".	
+
+Version 14.0.0.2 : (04-02-2021)	
+		- Update domain to display only config's selected sales team orders.
