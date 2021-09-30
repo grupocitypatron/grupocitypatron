@@ -1,0 +1,4 @@
+[submodule "dolmen"]
+	path = dolmen
+	url = git@git.vauxoo.com:vauxoo/dolmen.git
+	branch = 14.0
